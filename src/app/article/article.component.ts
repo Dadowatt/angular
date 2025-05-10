@@ -1,20 +1,15 @@
-import { Component, Input } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
-import { ArticleComponent } from "./article/article.component";
 import { CommonModule } from '@angular/common';
-import { ListeArticleComponent } from './liste-article/liste-article.component';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-article',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FormsModule, ArticleComponent, CommonModule, ListeArticleComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [CommonModule],
+  templateUrl: './article.component.html',
+  styleUrl: './article.component.css'
 })
-export class AppComponent {
-  title = 'projetangular';
+export class ArticleComponent {
+
   list = [
     { nom: 'téléphone', photo: '../assets/img/tof5.jpg',
       description: 'description de telephone',
@@ -45,20 +40,4 @@ export class AppComponent {
       }
   ];
 
-  quantity:number = 0;
-  message:string = "";
-
-  afficherMessage(nom:string){
-    this.message = "merci d'avoir ajouter la quantité de " + nom;
-  }
-
-  add(){
-    this.quantity++;
-  }
-
-  remove(){
-    if(this.quantity > 0){
-      this.quantity--;
-    }
-  }
 }

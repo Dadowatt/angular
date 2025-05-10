@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let element of list" class="col-sm-12 col-md-4 col-lg-3 mx-3 card mt-3" style="width: 18rem;">
+      <img [src]="element.photo" class="card-img-top" [alt]="">
+      <div class="card-body">
+        <h5 class="card-title">{{element.nom}}</h5>
+        <p class="card-text">{{element.description}}</p>
+        <!-- <p class="card-text">{{element.quantity}}</p> -->
+        @if(element.dispo === true){
+        <p [ngStyle]="{
+          'color': 'green',
+          'font-size': '2rem'
+        }">disponible</p>
+        }
+         @if(element.dispo === false){
+        <p [ngStyle]="{
+          'color': 'red',
+          'font-size': '2rem'
+        }">indisponible</p>
+         }
+  
+        <!-- <p *ngIf="dispo === false" ngClass="red">indisponible</p> -->
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+         
+        <!-- <a href="#" class="btn btn-primary" (click)="add()">Go somewhere</a> -->
+      </div>
+    </div>
+  </div>
+  
+</div>
